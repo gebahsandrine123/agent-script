@@ -45,14 +45,8 @@ echo -e "\nchecking the mac address\n"
 ifconfig -a
 
 echo -e "\ntotal number of memory\n"
-free -m |grep Mem |awk -F" " '{print $2}'
+free -m |grep Mem |awk -F" " '{print $1}
 
-if [ $? -eq 0 ]
-then
-echo -e "\n user puppet exit\n"
-else
-echo -e "\nno user exit\n"
-fi
 if [ -f /etc/group ] && [ -f /etc/passwd ] && [ -f /etc/httpd ] && [ -f /etc/kubernetes ]
 then
 echo -e "\nchecked passed\n"
